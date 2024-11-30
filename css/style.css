@@ -1,0 +1,503 @@
+* {
+    border: 0;
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;;
+    /* background-color: red; */
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+a[target="_blank"]:not(.social-media-link)::after {
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+    margin: 0 3px 0 5px;
+}
+
+.section-heading {
+    font-size: 5rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: .5rem;
+    margin: 5rem 0;
+    border-bottom: .3rem solid #333;
+    text-shadow: .2rem .2rem .5rem #555;
+}
+
+#section-heading-about-me {
+    /* margin-top: 10rem; */
+}
+
+.section {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-right-align {
+    display: flex; 
+    justify-content: flex-end;
+}
+
+.row:nth-child(odd) {
+    position: relative;
+    /* transform: translateX(150px); */
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+.row:nth-child(even) {
+    position: relative;
+    /* transform: translateX(-150px); */
+    opacity: 1;
+    transition: all 1s ease;
+}
+
+.row.active {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+/* .row-1, .row-2 {
+    opacity: 0;
+} */
+
+.col {
+    display: flex;
+    justify-content: center; 
+}
+
+/* section-1 */
+
+.section-1 {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, .2), rgba(255, 255, 255, .3)), url(../img/bg.svg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-top-heading {
+    font-size: 6rem;
+    font-weight: 700;
+    color: #fff;
+    padding: 0 3rem;
+    text-align: center;
+    margin-bottom: 5rem;        
+    text-shadow: .5rem .5rem .5rem #574b9c;
+}
+
+/* .section-top-heading {
+    transition: transform .5s ease;
+  } */
+
+  .section-top-heading:hover > #lecturer {
+    transform: scale(1.1);
+  }
+
+.section-top-heading .heading-aux {
+    font-size: 3.5rem;
+}
+
+.person-img {
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: .7rem dotted #574b9c;
+    padding: .5rem;
+    opacity: .9;
+}
+
+.person-name {
+    font-size: 2rem;
+    color: #fff;
+    background-color: #ef1c6f;
+    margin: 5rem 0;
+    padding: 2.5rem 3rem;
+    letter-spacing: .3rem;
+    /* transform: skew(-10deg); */
+    text-align: center;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% {
+        transform: skew(-10deg) scale(0.9);
+        box-shadow: 0 0 0 0 rgba(223, 54, 112, 0.7);
+    }
+    70% {
+        transform: skew(-10deg) scale(1);
+        box-shadow: 0 0 0 10px rgba(223, 54, 112, 0.7);
+    }
+    100% {
+        transform: skew(-10deg) scale(0.9);
+    }
+}
+
+.section-1-btn {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #333;
+    background-color: #fff;
+    border: .3rem solid #333;
+    padding: .5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+}
+
+/* end of section-1-  */
+
+/* Navbar */
+
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    background-color: #5c509f;
+    box-shadow: .2rem .2rem .5rem #555;
+    /* position: absolute; */
+    z-index: 300;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+a.brand-logo {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    /* white-space: nowrap; */
+
+}
+
+.navbar-link {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 1rem;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    position: relative;
+    transition: color .2s;
+}
+
+.navbar-link:hover {
+    color: #F8D7C3;
+}
+
+.change.navbar-link {
+    color: #fff;
+}
+
+.change.navbar-link::before {
+    width: 100%;
+}
+
+.navbar-link::before {
+    content: "";
+    width: 0;
+    height: 0.2rem;
+    background-color: #F8D7C3;
+    position: absolute;
+    left: 0;
+    /* right: -15%; */
+    bottom: 1rem;
+    transition: width 0.2s;
+}
+
+.navbar-link:hover::before {
+    width: 100%;
+}
+
+/* End of Navbar */
+
+/* Section Projects */
+
+.card {
+    width: 36rem;
+    max-width: 100%;
+}
+
+.project-container {
+    letter-spacing: .1rem;
+    max-width: 100%;
+}
+
+.project-name {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+.project-technology {
+    letter-spacing: .05rem;
+    font-size: 1.8rem;
+    padding-top: 2rem;
+}
+
+.project-link {
+    font-size: 1.8rem;
+}
+
+.project-title {
+    border-bottom: .1rem solid black;
+    margin-bottom: 1rem;
+}
+
+.details-container {
+    height: 64rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* end of Section Projects */
+
+/* Section About */
+
+.section-2 {
+    width: 100%;
+    height: 100%;
+    /* padding: 15rem 0 0 0; */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-2-description {
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+/* End of Section About */             
+
+/* Section Publications */
+
+
+.section-3-description {
+    font-size: 2rem;
+    text-align: center;
+
+}
+/* End of Section Publications */
+
+/* Footer */
+
+footer {
+    width: 100%;
+    height: 30vh;
+    background-color: #222;
+    flex-direction: column;
+}
+
+
+.social-media {
+    margin-bottom: 5rem;
+}
+
+.social-media-link {
+    margin: 0 2rem;
+    padding: .7rem;
+    display: inline-block;
+}
+
+.social-media-link i {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.copyright {
+    color: #aaa;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    font-weight: 300;
+    text-align: center;
+
+}
+
+/* End of Footer */
+
+/* Section Contact  */
+.section-contact {
+    width: 100%;
+    height: 80vh;
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.section-contact-heading {
+    color: #fff;
+    box-shadow: none;
+    border-color: #fff;
+}
+
+
+.contact-form {
+    width: 50rem;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: .5rem;
+    caret-color: white;
+    color: white;
+}
+
+.contact-form label {
+    font-size: 2rem;
+    top: -1rem;
+}
+
+.contact-form .input-field {
+    margin: 1.75rem 0;
+    max-width: 100vw;
+}
+
+.contact-form textarea {
+    max-height: 15rem;
+    height: 10rem;
+    max-width: 100%;
+}
+
+.contact-form .contact-form-btn {
+    background: #62499D;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    cursor: pointer;
+    height: 5rem;
+    font-size: 2rem;
+    max-width: 100vw 
+}
+
+/* End of Section Contact  */
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .section-contact {
+        height: 80vh;
+    }
+} 
+
+@media (max-width: 800px) {
+    .section-heading {
+        font-size: 4rem;
+    }
+    #projects-dir-link {
+        display: none;
+    }
+}
+
+@media(max-width: 600px) {
+    .section-heading {
+        font-size: 4.0rem;        
+    }   
+
+    
+
+    .navbar-link {
+        margin: 0 2rem;
+        font-size: 1.5rem;
+    }
+
+    .section-2 {
+        padding: 0rem 1rem;
+    }
+
+  
+
+    .section-3 {
+        padding: 0rem 1rem;
+        
+    }
+
+    #section-heading-about-me {
+        margin-bottom: 5rem;
+    }
+
+   
+
+    .contact-form {
+        width: 40rem;
+    }
+
+    .copyright {
+        width: 70%;
+    }
+
+    a.brand-logo {
+        font-size: 3rem;
+        font-weight: 300;
+        
+    }
+}
+
+@media(max-width: 500px) {
+    html {
+        font-size: 55%;
+    }
+
+   
+    
+}
+
+@media(max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    /* .section-heading {
+        font-size: 3.5rem;
+    }
+
+    .navbar-link {
+        margin: 0 1.5rem;
+    }
+
+    .section-heading {
+        text-align: center;
+    }
+
+   
+    a.brand-logo {
+        font-size: 1.75rem;
+    } */
+    
+
+
+}
+
+/* End of Responsive */
+
+.modal {
+    max-width: 100%;
+}
+

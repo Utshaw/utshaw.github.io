@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="mx-auto" style="text-align: center;">
+
+    <h3>Erudite commands made easy!</h3>
+
+  </div>
+
+
+
+  <div class="d-flex align-items-start">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <button id="yt-tab" aria-controls="yt" data-bs-target="#yt" class="nav-link active" data-bs-toggle="pill"
+        type="button" role="tab" aria-selected="true">YouTube</button>
+      <button aria-controls="wget" id="wget-tab" class="nav-link" data-bs-toggle="pill" data-bs-target="#wget"
+        type="button" role="tab" aria-selected="false">wget</button>
+      <button id="gpp-tab" aria-controls="gpp" data-bs-target="#gpp" class="nav-link" data-bs-toggle="pill"
+        type="button" role="tab" aria-selected="false">g++</button>
+    </div>
+    <div class="tab-content" id="v-pills-tabContent">
+
+      <div class="tab-pane fade show active" id="yt" role="tabpanel" aria-labelledby="yt-tab">
+        <div>
+          <form>
+            <div class="form-group">
+              <label for="ytURLInput">YouTube URL</label>
+              <input type="text" class="form-control" id="ytURLInput" aria-describedby="ytURLHelp"
+                placeholder="Enter a valid YouTube URL">
+            </div>
+            <p class="commandOutput"></p>
+            <button id="yt-submit" type="button" class="btn btn-primary erudite-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="wget" role="tabpanel" aria-labelledby="wget-tab">...</div>
+      <div class="tab-pane fade" id="gpp" role="tabpanel" aria-labelledby="gpp-tab">...</div>
+    </div>
+  </div>
+
+
+  <script src="prodigal.js"></script>
+  <script>
+    let activated_pane = null;
+    let commandOutputArea = document.getElementsByClassName('commandOutput')[0];
+    
+    processActiveTab();
+
+
+
+    
+
+
+    const button = document.querySelector('#yt-submit');
+    console.log(button);
+    button.addEventListener('click', () => {
+      commandOutputArea.innerHTML = "";
+      let activeTabID = null;
+      if (activated_pane) {
+        activeTabID = activated_pane.id;
+      }
+      generateCommands(activeTabID);
+      return false;
+    });
+
+
+  </script>
+</body>
+
+</html>
