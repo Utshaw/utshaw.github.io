@@ -9,6 +9,10 @@
     font-weight: 400;
 }
 
+.hide_me {
+    visibility: hidden;
+}
+
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;;
