@@ -1,0 +1,8 @@
+.DS_Store
+/resume/*
+!/resume/cv.tex
+!/resume/cv.pdf
+!/resume/deedy-resume.cls
+!/resume/fonts/
+!/resume/fonts/*
+/resume/fonts/.DS_Store
