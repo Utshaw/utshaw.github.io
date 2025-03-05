@@ -21,6 +21,8 @@
 
 \documentclass[letterpaper]{deedy-resume} % Use US Letter paper, change to a4paper for A4 
 \usepackage{makecell}
+\usepackage{tabulary}
+\usepackage{array, makecell}  % Add this in the preamble
 
 \begin{document}
 
@@ -32,7 +34,8 @@
 
 \namesection{Farhan Tanvir}{Utshaw}{ % Your name
 \urlstyle{same}\url{https://utshaw.com} \\ % Your website, LinkedIn profile or other web address
-\href{mailto:farhan.tanvir.utshaw@gmail.com}{farhan.tanvir.utshaw@gmail.com} | +1 417 353 2822 % Your contact information
+\href{mailto:farhan.tanvir.utshaw@gmail.com}{farhan.tanvir.utshaw@gmail.com} 
+%  | +1 417 353 2822 % Your contact information
 }
 
 %----------------------------------------------------------------------------------------
@@ -49,13 +52,13 @@
 
 \subsection{Missouri State University}
 
-\descript{Master's in Computer Science}
+\descript{MS in Computer Science, Ongoing}
 \location{Expected Dec 2026 | Springfield, MO \\ Cum. GPA: N/A}
 
 \sectionspace % Some whitespace after the section
 
 \subsection{Bangladesh University of Engineering and Technology}
-\descript{BS in Computer Science}
+\descript{B.Sc. in Computer Science \& Engineering}
 \location{Grad. Feb 2021 | Dhaka, Bangladesh}
 \location{ CGPA: 3.58 / 4.0}
 
@@ -75,10 +78,10 @@
 
 \section{Links} 
 
-GitHub:// \href{https://github.com/Utshaw}{\bf utshaw} \\
-StackOverflow:// \href{https://stackoverflow.com/users/7004995/utshaw}{\bf utshaw} \\
+GitHub: \href{https://github.com/Utshaw}{\bf utshaw} \\
+StackOverflow: \href{https://stackoverflow.com/users/7004995/utshaw}{\bf utshaw} \\
 % LinkedIn:// \href{https://www.linkedin.com/in/debarghyadas}{\bf debarghyadas} \\
-YouTube:// \href{https://www.youtube.com/@Utshaw}{\bf Utshaw} \\
+YouTube: \href{https://www.youtube.com/@Utshaw}{\bf @Utshaw} \\
 
 \sectionspace % Some whitespace after the section
 
@@ -115,13 +118,10 @@ Computer Graphics\\
 
 \subsection{Programming}
 
-\location{Over 5000 lines:}
-Java \textbullet{} Shell \textbullet{} JavaScript \textbullet{} Matlab \\
-OCaml \textbullet{} Python \textbullet{} Rails \textbullet{} \LaTeX\ \\ 
-\location{Over 1000 lines:}
-C \textbullet{} C++ \textbullet{} CSS \textbullet{} PHP \textbullet{} Assembly \\
-\location{Familiar:}
-AS3 \textbullet{} iOS \textbullet{} Android \textbullet{} MySQL
+Android \textbullet{} Java \textbullet{} Python \textbullet{} C++ \textbullet{} Shell \\
+Firebase \textbullet{} \LaTeX\  \textbullet{}
+C \textbullet{} Javascript \textbullet{} CSS \textbullet{} PHP \textbullet{} Assembly 
+\textbullet{} MySQL
 
 \sectionspace % Some whitespace after the section
 
@@ -148,7 +148,7 @@ AS3 \textbullet{} iOS \textbullet{} Android \textbullet{} MySQL
 \location{October 2022 - December 2024}
 \vspace{\topsep} % Hacky fix for awkward extra vertical space
 \begin{tightitemize}
-\item Tought courses: Software Architecture, Artificial Intelligence
+\item Tought courses: Software Architecture, Artificial Intelligence, Theory of Computation, Discrete Mathematics
 \end{tightitemize}
 
 \sectionspace % Some whitespace after the section
@@ -160,8 +160,8 @@ AS3 \textbullet{} iOS \textbullet{} Android \textbullet{} MySQL
 
 \location{Sep 2020 - April 2022}
 \begin{tightitemize}
-\item Implemented video calling feature
-\item Reduced buffering of video by 15\% and loading time of news feed by 55\%
+\item Implemented the video calling and chat feature.
+\item Improved video buffering by 15\% and reduced news feed loading time by 55\% through the implementation of caching techniques.
 \end{tightitemize}
 
 \sectionspace % Some whitespace after the section
@@ -173,7 +173,7 @@ AS3 \textbullet{} iOS \textbullet{} Android \textbullet{} MySQL
 
 \location{Feb 2021 - Aug 2021}
 \begin{tightitemize}
-\item Implemented the backend
+\item Implemented the backend with Firestore and pub/sub functions. 
 \end{tightitemize}
 
 
@@ -217,18 +217,35 @@ Md Ehtesham-Ul-Haque, Jacob D'Rozario, Rudaiba Adnin, Farhan Tanvir Utshaw, Fabi
 
 \section{ACHIEVEMENTS} 
 
-\begin{tabular}{rll}
-2020	 & Champion & Cisco Networking Academy Skills Competition \\
-2019	 & Samsung Scholar & Samsung R\&D Institute Bangladesh (SRBD) \\
-2020	 & Gold Award & \makecell{SHONGJOG - An Alternative Food Supply Chain \\ Management System}
-Bangladesh Research \& Innovation Society(BRIS) \\
-2019	 & Champion & Hackathon \(Android app development\) BUET CSE Fest' 19\\
-2018 & First runner up & Hackathon, Banglalink SDG Hackathon \\
-2018 & Champion & Hackathon \(Fake news detection\) BUET CSE Fest \\
-2020 & Silver Award & Efficient E-Waste Management
-Bangladesh Research \& Innovation Society(BRIS) \\
-2008 & Junior Ambassador & 20th Asian Pacific Children's Convention at Fukuoka, Japan\\
-\end{tabular}
+
+
+
+\begin{tabulary}{\linewidth}{R L J}
+    2020  & Champion & Cisco Networking Academy Skills Competition \\
+    \noalign{\vspace{5pt}}  % Adds 5pt vertical space before the next row
+
+    2019  & Samsung Scholar & Samsung R\&D Institute Bangladesh (SRBD) \\
+    \noalign{\vspace{5pt}}  % Adds 5pt vertical space before the next row
+
+    2020  & Gold Award & \makecell[l]{SHONGJOG - An Alternative Food Supply Chain  \\
+    Management System \\ 
+    Bangladesh Research \& Innovation Society (BRIS)} \\
+    \noalign{\vspace{5pt}}  % Adds 5pt vertical space before the next row
+
+    2019  & Champion & Hackathon (Android app development) BUET CSE Fest' 19 \\
+    \noalign{\vspace{5pt}}  % Adds 5pt vertical space before the next row
+
+    2018  & First Runner-up & Hackathon, Banglalink SDG Hackathon \\
+    \noalign{\vspace{5pt}}  % Adds 5pt vertical space before the next row
+
+    2018  & Champion & Hackathon (Fake news detection) BUET CSE Fest \\
+    \noalign{\vspace{5pt}}  % Adds 5pt vertical space before the next row
+
+    2020  & Silver Award & \makecell[l]{Efficient E-Waste Management \\ Bangladesh Research \& Innovation Society (BRIS)} \\
+    \noalign{\vspace{5pt}}  % Adds 5pt vertical space before the next row
+
+    2008  & Junior Ambassador & 20th Asian Pacific Children's Convention at Fukuoka, Japan \\
+    \end{tabulary}
 
 \sectionspace % Some whitespace after the section
 
