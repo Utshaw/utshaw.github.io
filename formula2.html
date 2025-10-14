@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Counterfactual Optimization — Expanded</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 30px; background: #f9fafc; color: #222; }
+    h2 { color: #333; }
+    .formula { background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.05); margin: 20px 0; }
+    .explain { margin-bottom: 15px; }
+    ul { margin: 0.4rem 0 0.8rem 1.2rem; }
+    code { background:#eef; padding:3px 6px; border-radius:4px; }
+  </style>
+</head>
+<body>
+
+<h2>Counterfactual Optimization — Expanded Objective</h2>
+
+<div class="formula">
+\[
+\mathcal{L}(a, P) = 
+\underbrace{L_{\text{cls}}(g(f^*(I)))}_{\text{classification loss}} 
++ \lambda_1 \underbrace{\sum_{i=1}^{H} \sum_{j=1}^{W} |a_{i,j}|}_{\text{sparsity term}} 
++ \lambda_2 \underbrace{\sum_{i=1}^{H-1} \sum_{j=1}^{W-1} \sqrt{(a_{i+1,j}-a_{i,j})^2 + (a_{i,j+1}-a_{i,j})^2}}_{\text{smoothness / TV term}}
+\]
+</div>
+
+<div class="explain">
+<ul>
+  <li><strong>Classification Loss \(L_{\text{cls}}(g(f^*(I)))\):</strong> Encourages the edited feature map \(f^*(I)\) to be classified as the distractor class by the black-box classifier \(g\).</li>
+  <li><strong>Sparsity Term \(\|a\|_1\):</strong> Penalizes the total sum of the gating mask values, encouraging only a few spatial regions to be edited. Minimizes the number of swaps for a concise counterfactual.</li>
+  <li><strong>Smoothness / Total Variation \(\text{TV}(a)\):</strong> Ensures neighboring positions in the gating mask have similar values. This produces contiguous, interpretable regions rather than scattered edits.</li>
+</ul>
+</div>
+
+<div class="explain">
+<p><strong>Notes:</strong></p>
+<ul>
+  <li>\(a \in [0,1]^{H \times W}\) is the continuous gating mask for each spatial region.</li>
+  <li>\(P \in \mathbb{R}^{R \times R}\) is the relaxed permutation matrix aligning distractor feature regions to source features.</li>
+  <li>\(f^*(I) = (1-a) \circ f(I) + a \circ P f(I')\) is the hybrid feature map combining the source and distractor features.</li>
+</ul>
+</div>
+
+</body>
+</html>
