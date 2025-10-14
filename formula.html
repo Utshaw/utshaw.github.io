@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Counterfactual Optimization Formulas</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 2rem; line-height:1.6; }
+    .card { max-width:700px; margin:0 auto; border:1px solid #e0e0e0; padding:1.25rem; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
+    h1 { font-size:1.25rem; margin-bottom:0.5rem; }
+    p { margin:0.5rem 0; }
+    .formula { background:#f8f9fb; padding:0.75rem; border-radius:6px; margin-top:0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Counterfactual feature &amp; optimization (compact)</h1>
+
+    <p>Counterfactual feature map (soft swap):</p>
+    <div class="formula">
+      \( \displaystyle f(I^*) \;=\; (1 - a) \circ f(I) \;+\; a \circ P\,f(I') \)
+    </div>
+
+    <p>Optimization objective (continuous relaxation, sparsity + smoothness):</p>
+    <div class="formula">
+      \[
+        \displaystyle
+        \min_{a\in[0,1]^{H\times W}}
+        \; \mathcal{L}(a)
+        \;=\;
+        -\log P\big(c' \mid f(I^*)\big)
+        \;+\; \lambda_{1}\|a\|_{1}
+        \;+\; \lambda_{2}\,\mathrm{TV}(a)
+      \]
+    </div>
+
+    <p><small>Notes: \(a\) is the spatial gating map (one scalar per location), \(P\) permutes/aligns distractor patches, and \(\mathrm{TV}(a)\) denotes a total-variation / smoothness penalty. After optimization one may threshold \(a\) for a binary mask.</small></p>
+  </div>
+</body>
+</html>
