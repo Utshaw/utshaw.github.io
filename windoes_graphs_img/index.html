@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow with Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        #slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .info-box {
+            margin-top: 15px;
+            font-size: 16px;
+            text-align: left;
+        }
+        .nav-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+        #prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        #next {
+            right: 0;
+            border-radius: 0 3px 3px 0;
+        }
+        .nav-btn:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+
+<div id="slideshow-container">
+    <img id="slide" src="Figure_1.png" alt="Slideshow Image">
+    <div class="info-box" id="info">
+        Nodes: 462<br>
+        Edges: 737<br>
+        Country Origin: China<br>
+        File: graph_0_APT0.pt
+    </div>
+    <a class="nav-btn" id="prev">&#10094;</a>
+    <a class="nav-btn" id="next">&#10095;</a>
+</div>
+
+<script>
+    const slides = [
+        {
+            img: "Figure_1.png",
+            nodes: 462,
+            edges: 737,
+            country: "China",
+            file: "graph_0_APT0.pt"
+        },
+        {
+            img: "Figure_2.png",
+            nodes: 605,
+            edges: 937,
+            country: "China",
+            file: "graph_10_APT5.pt"
+        },
+        {
+            img: "Figure_3.png",
+            nodes: 1440,
+            edges: 2114,
+            country: "China",
+            file: "graph_1_APT0.pt"
+        },
+        {
+            img: "Figure_4.png",
+            nodes: 485,
+            edges: 786,
+            country: "China",
+            file: "graph_2_APT0.pt"
+        },
+        {
+            img: "Figure_5.png",
+            nodes: 482,
+            edges: 787,
+            country: "China",
+            file: "graph_3_APT0.pt"
+        },
+        {
+            img: "Figure_6.png",
+            nodes: 678,
+            edges: 1284,
+            country: "China",
+            file: "graph_4_APT0.pt"
+        },
+        {
+            img: "Figure_7.png",
+            nodes: 525,
+            edges: 833,
+            country: "China",
+            file: "graph_5_APT1.pt"
+        },
+        {
+            img: "Figure_8.png",
+            nodes: 595,
+            edges: 945,
+            country: "Russia",
+            file: "graph_6_APT2.pt"
+        },
+        {
+            img: "Figure_9.png",
+            nodes: 711,
+            edges: 1411,
+            country: "Vietnam",
+            file: "graph_7_APT3.pt"
+        },
+        {
+            img: "Figure_10.png",
+            nodes: 2013,
+            edges: 2882,
+            country: "Vietnam",
+            file: "graph_8_APT4.pt"
+        },
+        {
+            img: "Figure_11.png",
+            nodes: 617,
+            edges: 1073,
+            country: "China",
+            file: "graph_9_APT5.pt"
+        }
+    ];
+
+    let currentIndex = 0;
+    const slide = document.getElementById('slide');
+    const infoBox = document.getElementById('info');
+
+    function updateSlide() {
+        const s = slides[currentIndex];
+        slide.src = s.img;
+        infoBox.innerHTML = `Nodes: ${s.nodes}<br>Edges: ${s.edges}<br>Country Origin: ${s.country}<br>File: ${s.file}`;
+    }
+
+    document.getElementById('prev').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide();
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide();
+    });
+</script>
+
+</body>
+</html>
